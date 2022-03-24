@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        h2{
+            background-color: rgb(211, 219, 100);
+            color: blueviolet;
+            height: 100px;
+            text-align: center;
+            font-size: 40px;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 3px;
+        
+        }
+
+        p{
+            background-color: rgb(93, 97, 38);
+            color: rgb(11, 3, 27);
+            height: 50px;
+            text-align: center;
+            font-size: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+            
+        }
+
+        img{
+            width: 300px;
+            height: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+    
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id="content"></div>
+    <script>
+    // Class person - name,age,cars 와 class car-brand, color 작성
+
+    class person{
+        constructor(name,age,cars,photo){
+            this.name =name;
+            this.age = age;
+            this.cars = cars;
+            this.photo = photo;
+        }
+    }
+
+    
+
+    class car{
+        constructor(brand,color){
+            this.brand = brand;
+            this.color = color;
+        }
+    }
+
+
+    //let사용해 person 객체 2개 (p1,p2) 생성, 리터럴로 person 객체 1개 생성
+    //각 person마다 car클래스로 생성한 객체를 2개이상 array로 넣기
+    //생성한 person array
+
+
+    let car1 = new car('BMW',"Black");
+    let car2 = new car('HD',"White");
+    let car3 = new car(`Ford`,"blue");
+
+
+    let p1 = new person("ANN",32,[car1,car2],"./img/KakaoTalk_20220324_091325439.jpg")
+    let p2 = new person("JENY",28,[car2,car3],"./img/KakaoTalk_20220324_091325595.jpg")
+
+    let persons = [p1,p2];
+
+
+
+    //array를 for문으로 출력
+
+    let str ="";
+
+    for(let i in persons){
+        let ps = persons[i]
+        
+        str += "<h2>" + ps.name + "(" + ps.age + ")" + "</h2>";
+        str += "<img src= '" + ps.photo + "'>";
+        console.log(ps)
+
+      
+        for(let j in ps.cars){
+            let cs=ps.cars[j]
+            str += "<p>" + cs.brand + ":" + cs.color + "</p>";
+
+
+        } 
+        
+    }
+
+    document.getElementById("content").innerHTML = str;
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>
